@@ -1,0 +1,33 @@
+# Example systemd unit for a bare-VPS deployment (alternative to Docker).
+#
+# Setup:
+#   sudo useradd --system --home /opt/linux-academy --shell /usr/sbin/nologin academy
+#   sudo mkdir -p /opt/linux-academy/data && sudo chown -R academy:academy /opt/linux-academy
+#   # copy the app into /opt/linux-academy, npm ci --omit=dev, create .env there
+#   sudo cp deploy/linux-academy.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now linux-academy
+
+[Unit]
+Description=Linux Academy full-stack app
+After=network.target
+
+[Service]
+Type=simple
+User=academy
+Group=academy
+WorkingDirectory=/opt/linux-academy
+EnvironmentFile=/opt/linux-academy/.env
+ExecStart=/usr/bin/node server/index.js
+Restart=on-failure
+RestartSec=5
+
+# Light sandboxing: no new privileges, private /tmp, read-only root except
+# the data directory this app actually needs to write to.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/opt/linux-academy/data
+
+[Install]
+WantedBy=multi-user.target

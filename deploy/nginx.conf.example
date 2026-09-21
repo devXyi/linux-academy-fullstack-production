@@ -1,0 +1,43 @@
+# Example reverse proxy for Linux Academy running on a bare VPS (non-Docker
+# path — pair with deploy/linux-academy.service). Copy to
+# /etc/nginx/sites-available/linux-academy, symlink into sites-enabled, then:
+#   sudo nginx -t && sudo systemctl reload nginx
+#
+# Requires a TLS certificate for the HTTPS block, e.g. via certbot:
+#   sudo certbot --nginx -d example.com -d www.example.com
+
+upstream linux_academy {
+    server 127.0.0.1:3000;
+    keepalive 32;
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name example.com www.example.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name example.com www.example.com;
+
+    ssl_certificate     /etc/letsencrypt/live/example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+
+    client_max_body_size 200k;
+
+    location / {
+        proxy_pass http://linux_academy;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Connection "";
+    }
+}
+
+# With this in front, set TRUST_PROXY=1 in the app's .env — nginx is the
+# single hop between the app and the internet.
