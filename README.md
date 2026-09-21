@@ -42,6 +42,19 @@ container platforms don't unless you attach a persistent disk).
 
 Both files have setup notes at the top.
 
+### Render
+
+`render.yaml` defines a Render Web Service for the full application. In
+Render, create a Blueprint from this repository and set the prompted
+`PUBLIC_BASE_URL` value to the final Render service URL. The blueprint creates
+a persistent disk mounted at `/var/data`, which keeps the SQLite database,
+users, progress, and certificates across deploys.
+
+The blueprint generates `JWT_SECRET` automatically. Do not commit a `.env`
+file or replace the generated secret with a value from source control. After
+the first deploy, check `/healthz`, then verify registration, login, course
+enrollment, quizzes, certificates, and the lab from the public URL.
+
 ### Whichever path you use
 
 - **Set `TRUST_PROXY`** correctly for your topology (see `.env.example`) —

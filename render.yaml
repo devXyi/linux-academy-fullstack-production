@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: linux-academy-fullstack
+    runtime: node
+    plan: starter
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: BCRYPT_ROUNDS
+        value: "12"
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: DB_PATH
+        value: /var/data/academy.db
+      - key: TRUST_PROXY
+        value: "1"
+      - key: CORS_ORIGIN
+        value: ""
+    disk:
+      name: academy-data
+      mountPath: /var/data
+      sizeGB: 1
