@@ -32,45 +32,13 @@
 <div class="terminal"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><label>student@academy: ~</label></div><div class="termout" id="termout"><span class="prompt">$ </span><span id="typing"></span></div><form class="term-input" id="termForm"><span class="prompt">$&nbsp;</span><input id="termInput" autocomplete="off" placeholder="try: whoami" aria-label="Terminal command input"></form></div></div>
 <div class="tracks" id="tracks"></div>
 </div></section>
-
 <section class="section alt" id="courses"><div class="container"><div class="sectionhead"><h2>Six tracks. One terminal.</h2><p class="muted">Every track is broken into practical chapters. Open one and start working.</p></div><input class="field" id="courseSearch" type="search" placeholder="Search courses…" aria-label="Search courses" style="max-width:320px;margin-bottom:20px"><div class="courses" id="courseList"></div></div></section>
-
-<section class="section" id="how"><div class="container"><h2>How the first week goes</h2><div class="tracks" style="grid-template-columns:repeat(4,1fr);margin-top:35px">
-<div class="card"><i data-lucide="map"></i><h3>01 — Pick a track</h3><p class="muted">Start from zero or jump in at the right chapter.</p></div>
-<div class="card"><i data-lucide="terminal"></i><h3>02 — Work in terminal</h3><p class="muted">Practice commands rather than only watching videos.</p></div>
-<div class="card"><i data-lucide="hammer"></i><h3>03 — Build</h3><p class="muted">Finish projects that resemble real operational work.</p></div>
-<div class="card"><i data-lucide="badge-check"></i><h3>04 — Certify</h3><p class="muted">Use practice exams aligned to common certifications.</p></div>
-</div></div></section>
-
-<section class="section alt" id="pricing"><div class="container"><div class="sectionhead"><h2>Pick a pace.</h2><p class="muted">Prototype pricing — connect Stripe before taking payments.</p></div><div class="pricing">
-<div class="price"><h3>Self-paced</h3><div class="amount">$0</div><p class="muted">For exploring.</p><ul><li>3 starter courses</li><li>Community access</li><li>Intro labs</li></ul><button class="btn ghost" id="freeBtn">Start free</button></div>
-<div class="price feature"><h3>Pro</h3><div class="amount">$29<span style="font-size:.9rem;color:var(--dim)">/mo</span></div><p class="muted">For serious learners.</p><ul><li>Full library</li><li>Unlimited labs</li><li>Progress tracking</li><li>Practice tests</li></ul><button class="btn primary" id="proBtn">Start Pro</button></div>
-<div class="price"><h3>Team</h3><div class="amount">$99</div><p class="muted">5 seats / month.</p><ul><li>Everything in Pro</li><li>Team dashboard</li><li>Priority support</li></ul><button class="btn ghost" id="teamBtn">Talk to us</button></div>
-</div></div></section>
-
-<section class="section" id="faq"><div class="container faq"><h2>Questions people actually ask</h2>
-<div class="faqitem"><button class="faqq">Do I need Linux experience?<i data-lucide="plus"></i></button><div class="faqa">No. Foundations begins with the terminal and builds upward.</div></div>
-<div class="faqitem"><button class="faqq">Can I track chapter completion?<i data-lucide="plus"></i></button><div class="faqa">Yes. Create an account and completion is saved in SQLite through the backend API.</div></div>
-<div class="faqitem"><button class="faqq">Is the terminal a real server?<i data-lucide="plus"></i></button><div class="faqa">This starter includes a safe command simulator. Production should connect the lab API to isolated containers or VMs.</div></div>
-<div class="faqitem"><button class="faqq">Can this become a paid LMS?<i data-lucide="plus"></i></button><div class="faqa">Yes. Add Stripe, real isolated lab infrastructure, instructor/admin roles, email, certificates and a production database.</div></div>
-</div></section>
+<section class="section" id="how"><div class="container"><h2>How the first week goes</h2><div class="tracks" style="grid-template-columns:repeat(4,1fr);margin-top:35px"><div class="card"><i data-lucide="map"></i><h3>01 — Pick a track</h3><p class="muted">Start from zero or jump in at the right chapter.</p></div><div class="card"><i data-lucide="terminal"></i><h3>02 — Work in terminal</h3><p class="muted">Practice commands rather than only watching videos.</p></div><div class="card"><i data-lucide="hammer"></i><h3>03 — Build</h3><p class="muted">Finish projects that resemble real operational work.</p></div><div class="card"><i data-lucide="badge-check"></i><h3>04 — Certify</h3><p class="muted">Use practice exams aligned to common certifications.</p></div></div></div></section>
+<section class="section alt" id="pricing"><div class="container"><div class="sectionhead"><h2>Pick a pace.</h2><p class="muted">Prototype pricing — connect Stripe before taking payments.</p></div><div class="pricing"><div class="price"><h3>Self-paced</h3><div class="amount">$0</div><p class="muted">For exploring.</p><ul><li>3 starter courses</li><li>Community access</li><li>Intro labs</li></ul><button class="btn ghost" id="freeBtn">Start free</button></div><div class="price feature"><h3>Pro</h3><div class="amount">$29<span style="font-size:.9rem;color:var(--dim)">/mo</span></div><p class="muted">For serious learners.</p><ul><li>Full library</li><li>Unlimited labs</li><li>Progress tracking</li><li>Practice tests</li></ul><button class="btn primary" id="proBtn">Start Pro</button></div><div class="price"><h3>Team</h3><div class="amount">$99</div><p class="muted">5 seats / month.</p><ul><li>Everything in Pro</li><li>Team dashboard</li><li>Priority support</li></ul><button class="btn ghost" id="teamBtn">Talk to us</button></div></div></div></section>
+<section class="section" id="faq"><div class="container faq"><h2>Questions people actually ask</h2><div class="faqitem"><button class="faqq">Do I need Linux experience?<i data-lucide="plus"></i></button><div class="faqa">No. Foundations begins with the terminal and builds upward.</div></div><div class="faqitem"><button class="faqq">Can I track chapter completion?<i data-lucide="plus"></i></button><div class="faqa">Yes. Create an account and completion is saved in SQLite through the backend API.</div></div><div class="faqitem"><button class="faqq">Is the terminal a real server?<i data-lucide="plus"></i></button><div class="faqa">This starter includes a safe command simulator. Production should connect the lab API to isolated containers or VMs.</div></div><div class="faqitem"><button class="faqq">Can this become a paid LMS?<i data-lucide="plus"></i></button><div class="faqa">Yes. Add Stripe, real isolated lab infrastructure, instructor/admin roles, email, certificates and a production database.</div></div></div></section>
 </main>
-
-<section id="appPage" class="app"><div class="container dashboard">
-<div class="dashgrid"><aside class="side">
-<div class="eyebrow" style="margin:6px 10px 15px">Academy</div>
-<button class="active" data-app="dashboard"><i data-lucide="layout-dashboard"></i> Dashboard</button>
-<button data-app="catalog"><i data-lucide="library"></i> Course catalog</button>
-<button data-app="labs"><i data-lucide="terminal"></i> Labs</button>
-<button data-app="profile"><i data-lucide="user"></i> Profile</button>
-<button id="logoutBtn"><i data-lucide="log-out"></i> Log out</button>
-</aside><section id="appContent"></section></div>
-</div></section>
-
-<div class="modal" id="authModal"><div class="modalbox" role="dialog" aria-modal="true" aria-labelledby="authTitle">
-<div style="display:flex;justify-content:space-between;align-items:center"><h2 id="authTitle" style="font-size:1.5rem">Log in</h2><button id="closeModal" aria-label="Close dialog">✕</button></div>
-<form id="authForm"><input class="field" id="nameField" placeholder="Name" aria-label="Name" style="display:none"><input class="field" id="emailField" type="email" placeholder="Email" aria-label="Email" required><input class="field" id="passwordField" type="password" placeholder="Password (6+ chars)" aria-label="Password" required minlength="6"><button class="btn primary" style="width:100%;justify-content:center" id="authSubmit">Log in</button></form>
-<p id="authSwitch" class="muted" style="font-size:.9rem;margin-top:15px"></p>
-</div></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<section id="appPage" class="app"><div class="container dashboard"><div class="dashgrid"><aside class="side"><div class="eyebrow" style="margin:6px 10px 15px">Academy</div><button class="active" data-app="dashboard"><i data-lucide="layout-dashboard"></i> Dashboard</button><button data-app="catalog"><i data-lucide="library"></i> Course catalog</button><button data-app="labs"><i data-lucide="terminal"></i> Labs</button><button data-app="profile"><i data-lucide="user"></i> Profile</button><button id="logoutBtn"><i data-lucide="log-out"></i> Log out</button></aside><section id="appContent"></section></div></div></section>
+<div class="modal" id="authModal"><div class="modalbox" role="dialog" aria-modal="true" aria-labelledby="authTitle"><div style="display:flex;justify-content:space-between;align-items:center"><h2 id="authTitle" style="font-size:1.5rem">Log in</h2><button id="closeModal" aria-label="Close dialog">✕</button></div><form id="authForm"><input class="field" id="nameField" placeholder="Name" aria-label="Name" style="display:none"><input class="field" id="emailField" type="email" placeholder="Email" aria-label="Email" required><input class="field" id="passwordField" type="password" placeholder="Password (6+ chars)" aria-label="Password" required minlength="6"><button class="btn primary" style="width:100%;justify-content:center" id="authSubmit">Log in</button></form><p id="authSwitch" class="muted" style="font-size:.9rem;margin-top:15px"></p></div></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/session.js"></script>
 <script type="module" src="/app.js"></script>
 </body></html>
